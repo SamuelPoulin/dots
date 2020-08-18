@@ -1,0 +1,123 @@
+[bar/mybar]
+	modules-left = ewmh
+	modules-center = date
+	modules-right = backlight alsa network battery
+	bottom = true
+	override-redirect = true
+	wm-restack = i3
+	
+	height = 30
+	padding = 2
+	module-margin = 2
+	seperator = |
+	line-size = 2
+
+	background = ${xrdb:background}
+
+	font-0 = "sourcecodepro:style=bold:size=12;3"
+	font-1 = "fontawesome:size=13;3.5"
+
+[module/date]
+	type = internal/date
+
+	date =  %H:%M:%S 	
+	date-alt = %A, %d %b
+	label = %date%
+
+	format = <label>
+	format-foreground = ${xrdb:color15}
+
+[module/battery]
+	type = internal/battery
+	
+	full-at = 98
+	battery = BAT0
+	adapter = ADP1
+
+	format-charging = <animation-charging> <label-charging>
+	format-discharging = <ramp-capacity> <label-discharging>
+
+	label-charging = %percentage%%
+	label-charging-foreground = ${xrdb:color15}
+	label-discharging = %percentage%%
+	label-discharging-foreground = ${xrdb:color15}
+
+	ramp-capacity-foreground = ${xrdb:color15}
+	ramp-capacity-0 = 
+	ramp-capacity-1 = 
+	ramp-capacity-2 = 
+	ramp-capacity-3 = 
+	ramp-capacity-4 = 
+
+	animation-charging-foreground = ${xrdb:color15}
+	animation-charging-0 =  
+	animation-charging-1 =  
+	animation-charging-2 =  
+	animation-charging-3 =  
+	animation-charging-4 =  
+
+[module/network]
+	type = internal/network
+	
+	interface = wlp2s0
+
+	format-connected = <label-connected>
+	format-disconnected = <label-disconnected>
+	format-packetloss = <label-packetloss> 
+
+	label-connected =  %essid%  
+	label-connected-foreground = ${xrdb:color15}
+	label-disconnected =  No network
+	label-disconnected-foreground = ${xrdb:color15}
+	label-packetloss =  
+	label-packetloss-foreground = ${xrdb:color15}
+
+[module/ewmh]
+	type = internal/xworkspaces
+
+	enable-click = true
+
+	format = <label-state>	
+	format-padding = 0
+	
+	label-active = %name%
+	label-active-foreground = ${xrdb:color15}
+	label-active-underline = ${xrdb:color4}
+	label-active-padding = 1
+
+	label-occupied = %name%
+	label-occupied-foreground = ${xrdb:color15}
+	label-occupied-padding = 1
+
+	label-urgent = %name%
+	label-urgent-foreground = ${xrdb:color15}
+	label-urgent-padding = 1
+
+	label-empty = %name%
+	label-empty-foreground = ${xrdb:color15}
+	label-empty-padding = 1
+
+[module/alsa]
+	type = internal/alsa
+	
+	format-volume = <ramp-volume> <label-volume>
+	format-muted = <label-muted>
+
+	label-volume-foreground = ${xrdb:color15}
+	label-volume = %percentage%%
+	label-muted =  Muted
+	
+	ramp-volume-foreground = ${xrdb:color15}
+	ramp-volume-0 = 
+	ramp-volume-1 = 
+	ramp-volume-2 = 
+
+[module/backlight]
+	type = internal/backlight
+	
+	card = intel_backlight
+
+	format = <label>
+
+	label-foreground = ${xrdb:color15}
+	label =  %percentage%%
