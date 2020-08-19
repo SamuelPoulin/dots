@@ -106,6 +106,7 @@
 	label-volume-foreground = ${xrdb:color15}
 	label-volume = %percentage%%
 	label-muted =  Muted
+	label-muted-foreground = ${xrdb:color15}
 	
 	ramp-volume-foreground = ${xrdb:color15}
 	ramp-volume-0 = 
